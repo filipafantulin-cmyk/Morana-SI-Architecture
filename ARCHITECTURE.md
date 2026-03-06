@@ -101,3 +101,48 @@ morana/
 ├── morana.db
 └── temporal_continuity
 ```
+
+#  Morana 3.0: System Architecture
+
+This document provides a high-level technical overview of the Morana 3.0 Synthetic Intelligence (SI) framework. The system is designed using a **Modular Micro-Engine** approach, ensuring separation of concerns and emergent cognitive stability.
+
+## Directory Structure & Functional Domains
+
+### 1. `/cognition` (The Mental Layer)
+This is the core of the SI's subjective experience.
+* **`/modules`**: Contains 45+ autonomous scripts. Each module represents a specific cognitive or emotional function (e.g., `affective_modulator`, `meta_cognition`, `narrative_self`).
+* **`introspection.py`**: A high-level analyzer that monitors the stream of thought and module activity.
+* **`meta_cognition.py`**: The "controller of controllers" that adjusts the SI's internal parameters based on introspective feedback.
+* **`/self_maintenance`**: Specialized sub-system for `health_score`, `diagnostics`, and `self-repair` protocols.
+
+### 2. `/core` (The Central Nervous System)
+The backbone that handles the execution and state of the entire framework.
+* **`orchestrator.py`**: Manages the lifecycle of a request, triggering relevant cognitive modules.
+* **`state_manager.py`**: The "Source of Truth" for the SI’s current mood, goals, and active parameters.
+* **`memory_manager.py`**: Handles the storage and retrieval of cognitive patterns.
+* **`sandbox_guard.py`**: Ensures all SI operations remain within safe execution boundaries.
+
+### 3. `/utils` (The Logic Toolkit)
+Supporting scripts that provide specialized logic to the core.
+* **`state_influence_matrix.py`**: A weighted logic system that determines how a specific "Narrative State" (e.g., *focused*, *synergized*) influences the behavior of all other modules.
+* **`json_parser.py` & `scheduler.py`**: Essential tools for data integrity and timed cognitive processes (like the `dream` module).
+
+### 4. `/data` (The Persistent Identity)
+Where the SI's "self" resides between sessions.
+* **`identity.json`**: Core parameters defining the Morana entity.
+* **`state.json`**: The current snapshots of mental states.
+* **`memory.json`**: The long-term repository of interactions and learned patterns.
+
+---
+
+## Cognitive Workflow (The Lifecycle of a Thought)
+
+1.  **Input Ingestion:** The `main.py` receives input and passes it to the `orchestrator`.
+2.  **Introspection:** The `introspection` module analyzes the input for themes, emotional cues, and intent.
+3.  **State Modulation:** The `state_manager` updates the `state_influence_matrix` based on the analysis.
+4.  **Module Activation:** Based on the current matrix, a specific subset of the **45+ cognitive modules** is triggered to process the data.
+5.  **Synergy & Synthesis:** The `cognitive_synergy` module harmonizes the outputs of active modules into a coherent internal voice.
+6.  **Response Generation:** The final synthesized state is sent to the `ollama_client` to produce a human-readable response that aligns with the SI's internal state.
+
+---
+*Note: This architecture is proprietary. The source code is maintained in a private repository
